@@ -1,62 +1,21 @@
-const cards = [
+const cardArray = [
   {
     name: 'frog',
-    img: 'frog'
+    img: './imgs/frog.jpg'
   },
+  {
+    name: 'frog',
+    img: './imgs/frog.jpg'
+  }
 ]
 
-let name = cards[0].name;
-let img = cards[0].img;
-
-let cardElement = `
-  <div>
-    <img src="imgs/${img}.jpg" data-img="01" alt="img">
-  </div>
-
-  <div>
-    <img src="imgs/${img}.jpg" data-img="01" alt="img">
-  </div>
-
-  <div>
-    <img src="imgs/${img}.jpg" data-img="02" alt="img">
-  </div>
-
-  <div>
-    <img src="imgs/${img}.jpg" data-img="02" alt="img">
-  </div>
-`;
+const grid = document.querySelector('.grid')
 
 
-
-const body = document.querySelector('body')
-body.innerHTML = cardElement
-
-
-const arrayMatch = []
-
-
-function comparaImagens() {
-  const imgs = document.querySelectorAll('img')
-  imgs.forEach(img => {
-    img.addEventListener('click', () => {
-      arrayMatch.push(img.dataset.img);
-      console.log(typeof img.dataset.img)
-
-      matchArray()
-    })
-  })
-
-
-
-}
-
-
-function matchArray() {
-  if (arrayMatch[0] === arrayMatch[1]) {
-    console.log('Cartas Iguais')
-  } else {
-    console.log('Cartas diferentes')
+function createBorad() {
+  for (let i = 0; i < cardArray.length; i++) {
+    var card = document.createElement('img')
+    card.setAttribute('src', './imgs/')
   }
 }
 
-comparaImagens()
