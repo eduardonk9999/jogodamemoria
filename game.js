@@ -13,7 +13,10 @@ const grid = document.querySelector('.grid')
 
 for (let i = 0; i < cardArray.length; i++) {
   let img = document.createElement('img')
-  img.setAttribute('src', cardArray[i].img)
+  img.setAttribute('src', '../imgs/capas.png')
+  //cardArray[i].img
+
+  img.setAttribute('data-ids', i)
 
   grid.appendChild(img)
 
@@ -22,4 +25,7 @@ for (let i = 0; i < cardArray.length; i++) {
 
 function clickFlip() {
   console.log('flip')
+
+  let imgData = document.querySelectorAll('img');
+  console.log(imgData.dataset.ids)
 }
