@@ -1,11 +1,11 @@
 const cardArray = [
   {
     name: 'frog',
-    img: './imgs/frog.jpg'
+    img: 'frog.jpg'
   },
   {
     name: 'frog',
-    img: './imgs/frog.jpg'
+    img: 'frog.jpg'
   }
 ]
 
@@ -24,8 +24,19 @@ for (let i = 0; i < cardArray.length; i++) {
 }
 
 function clickFlip() {
-  console.log('flip')
+  let imgData = this.dataset.ids
 
-  let imgData = document.querySelectorAll('img');
-  console.log(imgData.dataset.ids)
+
+
+
+  for (let j = 0; j < cardArray.length; j++) {
+    if (j === Number(imgData)) {
+      console.log('OK')
+      this.setAttribute('src', `../imgs/${cardArray[j].img}`)
+
+    } else {
+      console.log('Nao ok')
+    }
+  }
+
 }
