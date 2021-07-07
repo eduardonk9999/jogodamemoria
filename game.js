@@ -5,7 +5,6 @@ class GameM {
     imgData.this = imgData
     imgCard.this = imgCard
     imgCardNew.this = imgCardNew
-    grupoDeCardsIguais.this = grupoDeCardsIguais
   }
 }
 
@@ -36,7 +35,7 @@ function clickCard() {
     if (j === Number(imgData)) {
       console.log('OK');
       this.setAttribute('src', `../imgs/${cardsArray[j].img}`);
-      
+      viraCardDevolta(this)
     } else {
       console.log('Nao ok');
     }
@@ -61,14 +60,25 @@ function MontaCard() {
 MontaCard()
 
 function viraCardDevolta(imgCardNew) {
-  
+// Preciso retornar apenas o nome da img,
+
+
+/*
+  if(imgCardNew.src === imgCardNew.src) {
+    console.log('Foi')
+  } else {
+    console.log('Não foi')
+  }
+*/  
+
+  /*
   setTimeout(function(){
-    imgCardNew.setAttribute('src', '../imgs/capas.png');
+    console.log()
   }, 3000); 
-  
+  */
 }
 
 
-function validaCardsIguais() {
 
-}
+
+
