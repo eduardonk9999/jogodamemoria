@@ -1,4 +1,15 @@
-const cardArray = [
+class GameM {
+  constructor(){
+    cardsArray.this = cardsArray
+    grid.this = grid
+    imgData.this = imgData
+    imgCard.this = imgCard
+    imgCardNew.this = imgCardNew
+    grupoDeCardsIguais.this = grupoDeCardsIguais
+  }
+}
+
+cardsArray = [
   {
     name: 'frog',
     img: 'frog.jpg',
@@ -6,28 +17,58 @@ const cardArray = [
   {
     name: 'frog',
     img: 'frog.jpg',
+  },
+  {
+    name: 'joan',
+    img: 'joaninha.jpg',
+  },
+  {
+    name: 'joan',
+    img: 'joaninha.jpg',
   },
 ];
 
-const grid = document.querySelector('.grid');
+grid = document.querySelector('.grid');
 
-function clickFlip() {
-  const imgData = this.dataset.ids;
-  for (let j = 0; j < cardArray.length; j += 1) {
+function clickCard() {
+  imgData = this.dataset.ids;
+  for (let j = 0; j < cardsArray.length; j += 1) {
     if (j === Number(imgData)) {
       console.log('OK');
-      this.setAttribute('src', `../imgs/${cardArray[j].img}`);
+      this.setAttribute('src', `../imgs/${cardsArray[j].img}`);
+      
     } else {
       console.log('Nao ok');
     }
   }
+
+ 
 }
 
-for (let i = 0; i < cardArray.length; i += 1) {
-  const img = document.createElement('img');
-  img.setAttribute('src', '../imgs/capas.png');
+function MontaCard() {
+  for (let i = 0; i < cardsArray.length; i += 1) {
+    imgCard = document.createElement('img');
+    imgCard.setAttribute('src', '../imgs/capas.png');
+  
+    imgCard.setAttribute('data-ids', i);
+    grid.appendChild(imgCard);
+    imgCard.addEventListener('click', clickCard);
+  }
 
-  img.setAttribute('data-ids', i);
-  grid.appendChild(img);
-  img.addEventListener('click', clickFlip);
+  
+}
+
+MontaCard()
+
+function viraCardDevolta(imgCardNew) {
+  
+  setTimeout(function(){
+    imgCardNew.setAttribute('src', '../imgs/capas.png');
+  }, 3000); 
+  
+}
+
+
+function validaCardsIguais() {
+
 }

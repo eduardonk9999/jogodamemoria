@@ -1,10 +1,11 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-img{
+img {
   max-width: 200px;
   cursor: pointer;
+  border: 1px solid red;
 }
