@@ -53,8 +53,6 @@ function MontaCard() {
     grid.appendChild(imgCard);
     imgCard.addEventListener('click', clickCard);
   }
-
-  
 }
 
 MontaCard()
