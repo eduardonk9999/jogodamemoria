@@ -58,16 +58,15 @@ function MontaCard() {
 MontaCard()
 
 function viraCardDevolta(imgCardNew) {
-// Preciso retornar apenas o nome da img,
 
 
-/*
-  if(imgCardNew.src === imgCardNew.src) {
-    console.log('Foi')
-  } else {
-    console.log('Não foi')
-  }
-*/  
+let nameImgJoaninha = imgCardNew.src.endsWith('joaninha.jpg')
+let nameImgSapo = imgCardNew.src.endsWith('joaninha.jpg')
+
+
+// A melhor condição para usar é o switch, vamos poder passar por todos os nomes das imgs, sem ter muitos IF´s
+
+
 
   /*
   setTimeout(function(){
