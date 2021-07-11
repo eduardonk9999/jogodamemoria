@@ -5,6 +5,8 @@ class GameM {
     imgData.this = imgData
     imgCard.this = imgCard
     imgCardNew.this = imgCardNew
+    nameImgJoaninha.this = nameImgJoaninha
+    nameImgSapo.this = nameImgSapo
   }
 }
 
@@ -59,13 +61,20 @@ MontaCard()
 
 function viraCardDevolta(imgCardNew) {
 
+/*
+  Check for metches
+  pegar o data ids, pegar o nome do data ids
+  Ter dois arrays, cardsChosen e cardsChosenId
 
-let nameImgJoaninha = imgCardNew.src.endsWith('joaninha.jpg')
-let nameImgSapo = imgCardNew.src.endsWith('joaninha.jpg')
+  dai pegamos esses valores que foram enviados para os arrays e mandamos para a função de metches
 
+  na função pegamos todos os cardes atraves do querySelectorAll
+  pegamos a posicao zero do primeiro array e a posicao 1 do segundo array, dai fazemos o if comparando as duas
+  dai criamos um terceiro array mandando as cartes que deram match para esse 3º array
 
-// A melhor condição para usar é o switch, vamos poder passar por todos os nomes das imgs, sem ter muitos IF´s
+  se der false, executamos a funcao de virar as cartas de volta novamente.
 
+*/
 
 
   /*
