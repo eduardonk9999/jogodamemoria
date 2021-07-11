@@ -16,14 +16,6 @@ cardsArray = [
     img: 'frog.jpg',
   },
   {
-    name: 'frog',
-    img: 'frog.jpg',
-  },
-  {
-    name: 'joan',
-    img: 'joaninha.jpg',
-  },
-  {
     name: 'joan',
     img: 'joaninha.jpg',
   },
@@ -38,6 +30,7 @@ function clickCard() {
       console.log('OK');
       this.setAttribute('src', `../imgs/${cardsArray[j].img}`);
       viraCardDevolta(this)
+      
     } else {
       console.log('Nao ok');
     }
@@ -59,9 +52,27 @@ function MontaCard() {
 
 MontaCard()
 
+
+
+function duplicaCard(){
+  const cards = document.querySelectorAll(".grid img")
+  const grid = document.querySelector(".grid")
+  cards.forEach(card => {
+    let duplica = card.cloneNode()
+    console.log(duplica)
+    grid.appendChild(duplica)
+
+  })
+
+}
+duplicaCard()
+
 function viraCardDevolta(imgCardNew) {
+  
 
 /*
+  Preciso duplicar os elementos
+
   Check for metches
   pegar o data ids, pegar o nome do data ids
   Ter dois arrays, cardsChosen e cardsChosenId
@@ -75,6 +86,12 @@ function viraCardDevolta(imgCardNew) {
   se der false, executamos a funcao de virar as cartas de volta novamente.
 
 */
+
+
+
+
+
+
 
 
   /*
