@@ -25,14 +25,10 @@ grid = document.querySelector('.grid');
 
 function clickCard() {
   imgData = this.dataset.ids;
+  metchCards(this)
   for (let j = 0; j < cardsArray.length; j += 1) {
     if (j === Number(imgData)) {
-      console.log('OK');
       this.setAttribute('src', `../imgs/${cardsArray[j].img}`);
-      viraCardDevolta(this)
-      
-    } else {
-      console.log('Nao ok');
     }
   }
 
@@ -43,7 +39,7 @@ function MontaCard() {
   for (let i = 0; i < cardsArray.length; i += 1) {
     imgCard = document.createElement('img');
     imgCard.setAttribute('src', '../imgs/capas.png');
-  
+    imgCard.setAttribute('name', `${cardsArray[i].name}`);
     imgCard.setAttribute('data-ids', i);
     grid.appendChild(imgCard);
     imgCard.addEventListener('click', clickCard);
@@ -59,19 +55,38 @@ function duplicaCard(){
   const grid = document.querySelector(".grid")
   cards.forEach(card => {
     let duplica = card.cloneNode()
-    console.log(duplica)
     grid.appendChild(duplica)
+
+    duplica.addEventListener('click', clickCard);
 
   })
 
 }
 duplicaCard()
 
-function viraCardDevolta(imgCardNew) {
+let arrayUm = []
+let arrayDois = []
+
+let cartaVira = function(img) {
+  setTimeout(function(){
+    console.log('TCHAU')
+    img.setAttribute('src', '../imgs/capas.png');
+  }, 3000); 
+ }
+
+function metchCards(imgCardNew) {
+
+  console.log(imgCardNew.name)
+
+  arrayUm.push(imgCardNew.name)
+
+  console.log(arrayUm)
   
 
+  
+ 
+
 /*
-  Preciso duplicar os elementos
 
   Check for metches
   pegar o data ids, pegar o nome do data ids
@@ -87,18 +102,20 @@ function viraCardDevolta(imgCardNew) {
 
 */
 
-
-
-
-
-
-
-
-  /*
+/*
+if(Number(imgCardNew.dataset.ids) === Number(imgCardNew.dataset.ids)) {
+  console.log('AQUI')
+} else {
   setTimeout(function(){
-    console.log()
-  }, 3000); 
-  */
+    console.log('TCHAU')
+  }, 1000); 
+}
+
+*/
+
+
+
+
 }
 
 
