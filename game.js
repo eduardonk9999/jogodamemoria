@@ -65,7 +65,7 @@ function duplicaCard(){
 duplicaCard()
 
 let arrayUm = []
-let arrayDois = []
+
 
 let cartaVira = function(img) {
   setTimeout(function(){
@@ -75,16 +75,7 @@ let cartaVira = function(img) {
  }
 
 function metchCards(imgCardNew) {
-
-  console.log(imgCardNew.name)
-
-  arrayUm.push(imgCardNew.name)
-
-  console.log(arrayUm)
-  
-
-  
- 
+  console.log(imgCardNew.dataset.ids)
 
 /*
 
