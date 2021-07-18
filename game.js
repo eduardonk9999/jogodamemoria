@@ -16,6 +16,14 @@ cardsArray = [
     img: 'frog.jpg',
   },
   {
+    name: 'frog',
+    img: 'frog.jpg',
+  },
+  {
+    name: 'joan',
+    img: 'joaninha.jpg',
+  },
+  {
     name: 'joan',
     img: 'joaninha.jpg',
   },
@@ -23,17 +31,7 @@ cardsArray = [
 
 grid = document.querySelector('.grid');
 
-function clickCard() {
-  imgData = this.dataset.ids;
-  metchCards(this)
-  for (let j = 0; j < cardsArray.length; j += 1) {
-    if (j === Number(imgData)) {
-      this.setAttribute('src', `../imgs/${cardsArray[j].img}`);
-    }
-  }
 
- 
-}
 
 function MontaCard() {
   for (let i = 0; i < cardsArray.length; i += 1) {
@@ -45,11 +43,9 @@ function MontaCard() {
     imgCard.addEventListener('click', clickCard);
   }
 }
-
 MontaCard()
 
-
-
+/*
 function duplicaCard(){
   const cards = document.querySelectorAll(".grid img")
   const grid = document.querySelector(".grid")
@@ -63,53 +59,55 @@ function duplicaCard(){
 
 }
 duplicaCard()
+*/
 
 let arrayUm = []
+let cardsChosen = []
+let cardsIDs = []
 
+function metchCards() {
+  let cards = document.querySelectorAll('img')
+  const optionOne = cardsIDs[0]
+  const optionTwo = cardsIDs[1]
 
-let cartaVira = function(img) {
-  setTimeout(function(){
-    console.log('TCHAU')
-    img.setAttribute('src', '../imgs/capas.png');
-  }, 3000); 
- }
+  console.log(cardsChosen[0])
+  console.log(cardsChosen[1])
 
-function metchCards(imgCardNew) {
-  console.log(imgCardNew.dataset.ids)
+  if (cardsChosen[0] === cardsChosen[1]) {
 
-/*
-
-  Check for metches
-  pegar o data ids, pegar o nome do data ids
-  Ter dois arrays, cardsChosen e cardsChosenId
-
-  dai pegamos esses valores que foram enviados para os arrays e mandamos para a função de metches
-
-  na função pegamos todos os cardes atraves do querySelectorAll
-  pegamos a posicao zero do primeiro array e a posicao 1 do segundo array, dai fazemos o if comparando as duas
-  dai criamos um terceiro array mandando as cartes que deram match para esse 3º array
-
-  se der false, executamos a funcao de virar as cartas de volta novamente.
-
-*/
-
-/*
-if(Number(imgCardNew.dataset.ids) === Number(imgCardNew.dataset.ids)) {
-  console.log('AQUI')
-} else {
-  setTimeout(function(){
-    console.log('TCHAU')
-  }, 1000); 
-}
-
-*/
-
-
-
-
+    console.log('acerto')
+    cards[optionOne].classList.add('acerto')
+    cards[optionTwo].classList.add('acerto')
+  } else {
+    console.log('erro')
+    cards[optionOne].setAttribute('src', '../imgs/capas.png');
+    cards[optionTwo].setAttribute('src', '../imgs/capas.png');
+  }
+  cardsChosen = []
+  cardsIDs = []
+  arrayUm = []
 }
 
 
 
+function flipCard(card) {
+  let cardID = card.getAttribute('data-ids');
+  arrayUm.push(cardID)
+  cardsChosen.push(cardsArray[cardID].name)
+  cardsIDs.push(cardID)
+  if(arrayUm.length === 2) {
+    setTimeout(metchCards, 1000)
+  } 
+}
 
 
+
+function clickCard() {
+  imgData = this.dataset.ids;
+  for (let j = 0; j < cardsArray.length; j += 1) {
+    if (j === Number(imgData)) {
+      this.setAttribute('src', `../imgs/${cardsArray[j].img}`);
+      flipCard(this)
+    }
+  }
+}

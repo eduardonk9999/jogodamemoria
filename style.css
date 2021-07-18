@@ -9,3 +9,7 @@ img {
   cursor: pointer;
   border: 1px solid red;
 }
+
+img.acerto {
+  opacity: 0.4;
+}
