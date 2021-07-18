@@ -29,6 +29,8 @@ cardsArray = [
   },
 ];
 
+cardsArray.sort(() => 0.5 - Math.random())
+
 grid = document.querySelector('.grid');
 
 
@@ -69,17 +71,10 @@ function metchCards() {
   let cards = document.querySelectorAll('img')
   const optionOne = cardsIDs[0]
   const optionTwo = cardsIDs[1]
-
-  console.log(cardsChosen[0])
-  console.log(cardsChosen[1])
-
   if (cardsChosen[0] === cardsChosen[1]) {
-
-    console.log('acerto')
     cards[optionOne].classList.add('acerto')
     cards[optionTwo].classList.add('acerto')
   } else {
-    console.log('erro')
     cards[optionOne].setAttribute('src', '../imgs/capas.png');
     cards[optionTwo].setAttribute('src', '../imgs/capas.png');
   }
